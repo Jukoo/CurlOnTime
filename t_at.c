@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <curl/curl.h>
+#include <string.h>
+#include <time.h>
 #include "t_at.h"
 
 /**
@@ -20,6 +22,14 @@ size_t w_bin_data (void * ptr, size_t size  , size_t  nmemb  , void* f_stream)
     return stream_buffer_writen ; 
 } 
 
+/*!
+ * restitute_abs_path 
+ * restitute the absolute path  to save file  
+ * @param  char directory_name the main path  
+ * @param  const char   filename  ->  data  file name 
+ * @return char the absolute directory  
+ *
+ */
 char  *restitute_abs_path(char * dir ,  const char * filename)  
 {
     char  endpoint_char =  0 ; 
@@ -39,10 +49,17 @@ char  *restitute_abs_path(char * dir ,  const char * filename)
     return dir; 
 }
 
-void curl_stack_process (CURL * curl , D_U *  data  ,DETAIL * status) 
+/* ! 
+ *  curl_stack_process  e
+ *  execute  curl request  through  http or https  request  
+ *  @param   CURL  * curl  handler  
+ *  @param   D_U   * data_util   essential  user data 
+ *  @param   BOOL  status   use  for debuging curl request  
+ */
+void curl_stack_process (CURL * curl , D_U *  data  ,  BOOL * status) 
 {
-    curl_easy_setopt(curl , CURLOPT_URL          , data->direct_link) ; 
-    curl_easy_setopt(curl , CURLOPT_WRITEFUNCTION, data->curl_buffer ); 
+    curl_easy_setopt(curl , CURLOPT_URL          , data->direct_link ) ; 
+    curl_easy_setopt(curl , CURLOPT_WRITEFUNCTION, data->curl_buffer ) ; 
     
     if (* status== TRUE) 
         curl_easy_setopt(curl, CURLOPT_VERBOSE , 1L);
@@ -50,3 +67,19 @@ void curl_stack_process (CURL * curl , D_U *  data  ,DETAIL * status)
 }
 
 
+void update_time(int  *h_time , int *minutes) {
+    
+    time_t time_brute = 0  ; 
+    time_brute= time(NULL) ;  
+    struct tm * cur_time  =  NULL;    
+    cur_time =  localtime(&time_brute)  ;  
+ 
+    *h_time =  cur_time->tm_hour ;
+    *minutes=  cur_time->tm_min  ; 
+    /*
+    *seconds=  cur_time->tm_sec  ; 
+    fprintf(stdout ,  " sec  %d  \n"  ,  *seconds) ; 
+    */ 
+    fprintf(stdout ,  " time  %d \n "  ,  *h_time) ; 
+    fprintf(stdout ,  " min  %d  \n "  ,  *minutes) ; 
+}

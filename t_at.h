@@ -1,8 +1,14 @@
 #ifndef W_T_AT
 #define W_T_AT
 
-#define  TARGET_URL_LINK "http://www.stats.govt.nz/assets/Uploads/Annual-enterprise-survey/Annual-enterprise-survey-2018-financial-year-provisional/Download-data/annual-enterprise-survey-2018-financial-year-provisional-size-bands-csv.csv"
+#define  TARGET_URL_LINK "https://www.stats.govt.nz/assets/Uploads/Annual-enterprise-survey/Annual-enterprise-survey-2018-financial-year-provisional/Download-data/annual-enterprise-survey-2018-financial-year-provisional-csv.csv"
 
+
+// CLOCK TIME EXECUTE 
+#define  TIME_CLOCK  0X00D   // 12 h  oo  am
+
+//  SLEEP  TIME  LOOP  
+#define    STL   0X003
 
 //  ABSOLUTE  PATH  TO STORE   CSV  DOCUMENT FILE 
 #define D_LOAD_PATH     "/home/juko/Downloads/Data/"
@@ -28,9 +34,11 @@ typedef struct  DATA_UTILS  {
 
 typedef  enum {
     FALSE , TRUE 
-} DETAIL; 
+} BOOL; 
 
-void curl_stack_process  (CURL * , D_U* , DETAIL * ) ; 
 
+void curl_stack_process  (CURL * , D_U* , BOOL * ) ; 
+
+void update_time (int * h  , int * m ) ; // ,  int * s ) ; 
 
 #endif
