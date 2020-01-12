@@ -10,12 +10,6 @@
 #endif 
 #include "t_at.h"
 
-//TODO :
-// Make the programme run in every X time  
-// use  global macr o  time 
-// get the hours  
-// make while loop  
-//  
 int main (int argc  , char **argv){ 
     
     // print date exec time 

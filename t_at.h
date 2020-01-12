@@ -5,13 +5,13 @@
 
 
 // CLOCK TIME EXECUTE 
-#define  TIME_CLOCK  0X00D   // 12 h  oo  am
+#define  TIME_CLOCK  0X00D   
 
 //  SLEEP  TIME  LOOP  
 #define    STL   0X003
 
 //  ABSOLUTE  PATH  TO STORE   CSV  DOCUMENT FILE 
-#define D_LOAD_PATH     "/home/juko/Downloads/Data/"
+#define D_LOAD_PATH     "/home/user/Downloads/Data/"
 
 // CSV DOCUMENT FILE NAME 
 #define CSV_FILE_NAME   "data.csv"
