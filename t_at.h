@@ -17,7 +17,7 @@
 #define CSV_FILE_NAME   "data.csv"
 
 // the MAXIMUM SIZE OF CHAR  SIZE  
-#define MAX_CHAR_BUFF   50  
+#define MAX_CHAR_BUFF   0x07d0 
 
 
 /*! Pipe  curl  to  write  data on binary file*/
@@ -39,6 +39,6 @@ typedef  enum {
 
 void curl_stack_process  (CURL * , D_U* , BOOL * ) ; 
 
-void update_time (int * h  , int * m ) ; // ,  int * s ) ; 
+void update_time (int * h  , int * m  , BOOL *) ; // ,  int * s ) ; 
 
 #endif

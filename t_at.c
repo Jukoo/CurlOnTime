@@ -68,7 +68,7 @@ void curl_stack_process (CURL * curl , D_U *  data  ,  BOOL * status)
 }
 
 
-void update_time(int  *h_time , int *minutes) {
+void update_time(int  *h_time , int *minutes  , BOOL  * status  ) {
     
     time_t time_brute = 0  ; 
     time_brute= time(NULL) ;  
@@ -81,6 +81,8 @@ void update_time(int  *h_time , int *minutes) {
     *seconds=  cur_time->tm_sec  ; 
     fprintf(stdout ,  " sec  %d  \n"  ,  *seconds) ; 
     */ 
-    fprintf(stdout ,  " time  %d \n "  ,  *h_time) ; 
-    fprintf(stdout ,  " min  %d  \n "  ,  *minutes) ; 
+    if  ( *status  == TRUE )  { 
+       (void)fprintf(stdout ,  " time  %d \n "  ,  *h_time) ; 
+       (void)fprintf(stdout ,  " min  %d  \n "  ,  *minutes) ;
+    }  
 }

@@ -5,3 +5,5 @@ w32tat.o
 t_at
 archive/curl-7.67.0/
 archive/openssl-1.0.2u/
+TODO
+cfg.ini
