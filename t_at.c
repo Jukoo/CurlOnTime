@@ -86,3 +86,11 @@ void update_time(int  *h_time , int *minutes  , BOOL  * status  ) {
        (void)fprintf(stdout ,  " min  %d  \n "  ,  *minutes) ;
     }  
 }
+
+void  mcheck ( void * memaddres   , char * mesg)  {
+    if  ( memaddres ==  NULL  ) 
+    {
+        (void)fprintf(stderr , "%s %c" ,mesg ,  0x00a) ; 
+        exit(EXIT_FAILURE) ;
+    } 
+}

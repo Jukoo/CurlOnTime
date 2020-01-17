@@ -41,4 +41,6 @@ void curl_stack_process  (CURL * , D_U* , BOOL * ) ;
 
 void update_time (int * h  , int * m  , BOOL *) ; // ,  int * s ) ; 
 
+void mcheck (void * , char *) ; 
+
 #endif

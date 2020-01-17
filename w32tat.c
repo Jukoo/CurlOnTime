@@ -23,11 +23,8 @@ int main (int argc  , char **argv){
     CURL *curl_handler  = NULL ;
     D_U  data_util      = {TARGET_URL_LINK , (size_t)w_bin_data , destination_dir} ; 
     curl_handler        = curl_easy_init() ; 
-     
-    if ( curl_handler == NULL) { 
-       fprintf(stderr, "Warning curl handler not initialized %c", 0x00a) ; 
-       exit(EXIT_FAILURE) ;
-    } 
+ 
+    mcheck(curl_handler , "Warning curl handler not initialized") ; 
 
     BOOL   status = FALSE ;  
      
@@ -54,10 +51,7 @@ int main (int argc  , char **argv){
     curl_stack_process(curl_handler , &data_util , &status ) ;  
     csv_file =fopen(data_util.csv_data_dest, "wb") ;
 
-    if (csv_file == NULL) {
-        fprintf(stderr , "connot open  file  %c" , 0x00a);  
-        exit(EXIT_FAILURE) ; 
-    }
+    mcheck(csv_file ,  "connot open file ") ;
 
     curl_easy_setopt(curl_handler , CURLOPT_WRITEDATA, csv_file) ;
     curl_easy_perform(curl_handler) ; 

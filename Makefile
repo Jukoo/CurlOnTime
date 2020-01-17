@@ -2,7 +2,7 @@
 
 
 CC     = gcc 
-CFLAGS = -v -I -Wextra 
+CFLAGS = -I -Wextra -Wall  
 LCURL  = -lcurl
 EXEC   = t_at
 SRC    = $(wildcard *.c)
